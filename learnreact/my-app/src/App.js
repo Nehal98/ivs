@@ -1,21 +1,41 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import Button from "./components/Button";
+import "./assets/css/style.css";
+export default class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      count: 0
+    };
+  }
 
-class App extends Component {
+  incrementCount = () => {
+    this.setState({
+      count: this.state.count + 1
+    });
+  };
+
+  decrementCount = () => {
+    this.setState({
+      count: this.state.count - 1
+    });
+  };
+
   render() {
+    let { count } = this.state;
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
+      <div className="app">
+        <div>
+          <div class="count">
+            <h3>Count:</h3>
+            <h1>{count}</h1>
+          </div>
+          <div class="buttons">
+            <Button title={"-"} action={this.decrementCount} />
+            <Button title={"+"} action={this.incrementCount} />
+          </div>
         </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
       </div>
     );
   }
 }
-
-export default App;
