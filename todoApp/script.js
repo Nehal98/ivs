@@ -11,7 +11,7 @@ btn.onclick = function(){
         alert('you must write something');
     }else{
         li = document.createElement('li');
-    li.innerHTML = txt + ' <button onclick="Delete(this);">Delete</button> ' ;
+    li.innerHTML = txt + ' <button type="button" class="btndel" onclick="removeitem();">Delete</button> ' ;
     list.insertBefore(li,list.childNodes[0]);
     input.value = '';
     }
@@ -28,7 +28,3 @@ list.onclick = function(ev){
 function removeAll(){
     document.getElementById("list").innerHTML = "";
 }
-
-function Delete(){
-  
-  }
